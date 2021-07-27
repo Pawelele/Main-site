@@ -1,0 +1,93 @@
+body
+{
+    background: #0f0f0f;
+    margin: 0 auto;
+    font-family: 'Inter', sans-serif;
+}
+.logo
+{
+    width: 80px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 4vh;
+}
+.title
+{
+    margin-top: 13vh;
+    font-size: 90px;
+    color: white;
+    font-weight: 200;
+    letter-spacing: 4.5px;
+    text-align: center;
+}
+.subtitle
+{
+    margin-top: 5vh;
+    font-size: 35px;
+    color: white;
+    letter-spacing: 1.2px;
+    font-weight: 300;
+    text-align: center;
+}
+.button
+{
+    border: 2px solid white;
+    width: 24.3vw;
+    min-width: 340px;
+    max-width: 540px;
+    height: 7.4vh;
+    min-height: 70px;
+    max-height: 110px;
+    text-align: center;
+    color: white;
+    font-size: 25px;
+    font-weight: 200;
+    line-height: 7.4vh;
+    margin-bottom: 2.6vh;
+    border-radius: 15px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #0f0f0f;
+}
+
+.button:hover
+{
+    transform: scale(1.01);
+    transition: cubic-bezier(0.6, -0.28, 0.735, 0.045);
+    transition: 0.5s;
+    background-color: rgb(224, 224, 224);
+    color: #171717;
+}
+a
+{
+    text-decoration: none;
+    color: black;
+}
+a:visited
+{
+    text-decoration: none;
+    color: black;
+}
+
+#particles-js
+{
+    position:absolute;
+    z-index: -2;
+    width: 99vw;
+    height: 86vh;
+    background-image: url("");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 50% 50%;
+}
+
+@media (max-width: 450px)
+{
+    .title
+    {
+        margin-top: 13vh;
+        font-size: 70px;
+    }
+}
