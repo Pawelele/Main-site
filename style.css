@@ -4,6 +4,26 @@ body
     margin: 0 auto;
     font-family: 'Inter', sans-serif;
 }
+.menu
+{
+    width: 40px;
+    position: absolute;
+    right: 30px;
+}
+.menu a
+{
+    display: block;
+    margin-bottom: 30px;
+}
+.menu img
+{
+    width: 40px;
+}
+.menu img:hover
+{
+    transform: scale(1.07);
+    transition: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+}
 .logo
 {
     width: 80px;
@@ -75,6 +95,70 @@ a:visited
     height: 95%;
 }
 
+/* Popup */
+.contact-popup
+{
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 99;
+    width: 500px;
+    height: 470px;
+    background: #313131;
+    border: 1px solid #707070;
+    border-radius: 10px;
+    opacity: 0.99;
+    text-align: center;
+}
+.contact-up
+{
+    width: 500px;
+    height: 40px;
+    background: #525252;
+    color: white;
+    text-align: center;
+    font-size: 20px;
+    line-height: 40px;
+    border-radius: 10px 10px 0px 0px;
+    margin-bottom: 30px;
+}
+#x
+{
+    float: right;
+    margin-right: 10px;
+}
+.input
+{
+    width: 300px;
+    height: 30px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+#message
+{
+    margin-top: 20px;
+    height: 200px;
+    width: 290px;
+    border-radius: 10px;
+    text-align: center;
+    padding: 10px;
+}
+#send_submit
+{
+    height: 30px;
+    width: 120px;
+    margin-top: 20px;
+    border-radius: 5px;
+    border: none;
+}
+/* popup end */
 
 
 @media (max-width: 575px)

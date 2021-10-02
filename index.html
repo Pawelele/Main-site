@@ -14,15 +14,35 @@
 		<link rel="preconnect" href="https://fonts.gstatic.com">
 		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 		<!-- Czcionka end -->
-
+        <!-- Particles -->
         <script src="js/particles.js" defer></script>
-        <!-- particles.js lib - https://github.com/VincentGarreau/particles.js -->
         <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+        <!-- Particles end -->
+
     </head>
 
     <body>
         <!-- particles.js container -->
         <div id="particles-js">
+        </div>
+
+        <div class="contact-popup">
+            <div class="contact-up">
+                <span>Napisz do mnie</span>
+                <span id="x">X</span>
+            </div>
+            <form>
+                <input type="text" name="name" class="input" placeholder="Podaj swoje imię"><br>
+                <input type="text" name="email" class="input" placeholder="Podaj swój email"><br>
+                <textarea id="message" placeholder="Tutaj wpisz wiadomość"></textarea><br>
+                <input type="submit" value="Wyślij" id="send_submit">
+            </form>
+        </div>
+
+        <div class="menu">
+            <a href="https://linkedin.com/in/pawel-uchanski" target="_blank"><img src="img/linkedin.png"></a>
+            <a href="https://github.com/Pawelele" target="_blank"><img src="img/github.png"></a>
+            <a href="#"><img src="img/email.png"></a>
         </div>
 
         <div class="site">
