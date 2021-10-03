@@ -17,7 +17,7 @@ body
 }
 .menu img
 {
-    width: 40px;
+    width: 30px;
 }
 .menu img:hover
 {
@@ -115,6 +115,7 @@ a:visited
     border-radius: 10px;
     opacity: 0.99;
     text-align: center;
+    display:none;
 }
 .contact-up
 {
@@ -132,11 +133,13 @@ a:visited
 {
     float: right;
     margin-right: 10px;
+    cursor:grab;
 }
 .input
 {
     width: 300px;
     height: 30px;
+    border: none;
     border-radius: 10px;
     margin-bottom: 10px;
     text-align: center;
@@ -146,17 +149,20 @@ a:visited
     margin-top: 20px;
     height: 200px;
     width: 290px;
+    border: none;
     border-radius: 10px;
     text-align: center;
     padding: 10px;
 }
 #send_submit
 {
-    height: 30px;
-    width: 120px;
-    margin-top: 20px;
+    height: 40px;
+    width: 140px;
+    margin-top: 15px;
     border-radius: 5px;
     border: none;
+    font-size: 16px;
+    font-weight: 500;
 }
 /* popup end */
 
@@ -164,11 +170,18 @@ a:visited
 @media (max-width: 575px)
 {
     .button
-{
-    min-width: 340px;
-    max-width: 400px;
-}
-}
+    {
+        min-width: 340px;
+        max-width: 400px;
+    }
+    .contact-popup
+    {
+        width: 350px;
+    }
+    .contact-up
+    {
+        width: 350px;
+    }
 
 @media (max-width: 450px)
 {
