@@ -4,6 +4,17 @@ body
     margin: 0 auto;
     font-family: 'Inter', sans-serif;
 }
+.language
+{
+    color: white;
+    position: absolute;
+    left:20px;
+    top: 8px;
+}
+.language a
+{
+    text-decoration: underline;
+}
 .menu
 {
     width: 40px;
@@ -73,7 +84,7 @@ body
 {
     transform: scale(1.01);
     transition: cubic-bezier(0.6, -0.28, 0.735, 0.045);
-    transition-duration: 200ms;
+    transition-duration: 100ms;
     background-color: rgb(224, 224, 224);
     color: #171717;
 }

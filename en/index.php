@@ -3,22 +3,22 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>Paweł Uchański</title>
-        <link rel="icon" href="img/icon.ico">
+        <link rel="icon" href="/img/icon.ico">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta name="author" content="Paweł Uchański">
 		<meta name="description" content="Front-End developer Paweł Uchański">
 		<meta name="keywords" content="Paweł Uchański, Front-End, Paweł, Uchański, Programista, Programista Uchański">
-		<link rel="stylesheet" href="style.css" type="text/css">
+		<link rel="stylesheet" href="/style.css" type="text/css">
 
         <!-- Czcionka -->
 		<link rel="preconnect" href="https://fonts.gstatic.com">
 		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 		<!-- Czcionka end -->
         <!-- Particles -->
-        <script src="js/particles.js" defer></script>
+        <script src="/js/particles.js" defer></script>
         <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
         <!-- Particles end -->
-        <script src="js/popup.js" defer></script>
+        <script src="/js/popup.js" defer></script>
 
         <!-- Global site tag (gtag.js) - Google Analytics -->
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-TZZQG2TEMS"></script>
@@ -38,8 +38,8 @@
         </div>
         <!-- end particles.js -->
 
-        <!-- pl/en -->
-        <div class="language">
+         <!-- pl/en -->
+         <div class="language">
             <a href="/" title="Change language to Polish">PL</a>&nbsp
             <a href="/en/" title="Change language to English">EN</a>
         </div>
@@ -47,29 +47,29 @@
 
         <div class="contact-popup">
             <div class="contact-up">
-                <span>Napisz do mnie</span>
+                <span>Contact me</span>
                 <span id="x">X</span>
             </div>
             <form method="POST">
-                <input type="text" name="name" class="input" placeholder="Podaj swoje imię" required><br>
-                <input type="text" name="email" class="input" placeholder="Podaj swój email" required><br>
-                <textarea id="message" name="message" placeholder="Tutaj wpisz wiadomość" required></textarea><br>
-                <input type="submit" name="send_message" value="Wyślij" id="send_submit"><br>
+                <input type="text" name="name" class="input" placeholder="Your name"><br>
+                <input type="text" name="email" class="input" placeholder="Your email"><br>
+                <textarea id="message" name="message" placeholder="Message"></textarea><br>
+                <input type="submit" name="send_message" value="Send" id="send_submit"><br>
             </form>
         </div>
 
         <div class="menu">
-            <a href="https://linkedin.com/in/pawel-uchanski" target="_blank"><img src="img/linkedin.png"></a>
-            <a href="https://github.com/Pawelele" target="_blank"><img src="img/github.png"></a>
-            <img src="img/email.png" id="send_message">
+            <a href="https://linkedin.com/in/pawel-uchanski" target="_blank"><img src="/img/linkedin.png"></a>
+            <a href="https://github.com/Pawelele" target="_blank"><img src="/img/github.png"></a>
+            <img src="/img/email.png" id="send_message">
         </div>
 
         <div class="site">
-            <a href="/"><img class="logo" src="img/logo.png"></a>
+            <a href="/en/"><img class="logo" src="/img/logo.png"></a>
             <p class="title">Paweł Uchański</p>
-            <p class="subtitle">Projekty:</p>
+            <p class="subtitle">My projects:</p>
             <a href="https://portfolio.paweluchanski.pl" target="_blank"><div class="button">Portfolio</div></a><br>
-            <a href="https://urzad.paweluchanski.pl" target="_blank"><div class="button">Urząd Miasta</div></a><br>
+            <a href="https://urzad.paweluchanski.pl" target="_blank"><div class="button">City Hall</div></a><br>
             <a href="https://kursly.paweluchanski.pl" target="_blank"><div class="button">Kursly</div></a><br>
 
         </div>
