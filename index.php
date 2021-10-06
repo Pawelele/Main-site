@@ -20,23 +20,34 @@
         <!-- Particles end -->
         <script src="js/popup.js" defer></script>
 
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-TZZQG2TEMS"></script>
+        <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-TZZQG2TEMS');
+        </script>
+
     </head>
 
     <body>
         <!-- particles.js container -->
         <div id="particles-js">
         </div>
+        <!-- end particles.js -->
 
         <div class="contact-popup">
             <div class="contact-up">
                 <span>Napisz do mnie</span>
                 <span id="x">X</span>
             </div>
-            <form>
+            <form method="POST">
                 <input type="text" name="name" class="input" placeholder="Podaj swoje imię"><br>
                 <input type="text" name="email" class="input" placeholder="Podaj swój email"><br>
-                <textarea id="message" placeholder="Tutaj wpisz wiadomość"></textarea><br>
-                <input type="submit" value="Wyślij" id="send_submit">
+                <textarea id="message" name="message" placeholder="Tutaj wpisz wiadomość"></textarea><br>
+                <input type="submit" name="send_message" value="Wyślij" id="send_submit"><br>
             </form>
         </div>
 
@@ -47,7 +58,7 @@
         </div>
 
         <div class="site">
-            <a href="index.html"><img class="logo" src="img/logo.png"></a>
+            <a href="/"><img class="logo" src="img/logo.png"></a>
             <p class="title">Paweł Uchański</p>
             <p class="subtitle">Projekty:</p>
             <a href="https://portfolio.paweluchanski.pl" target="_blank"><div class="button">Portfolio</div></a><br>
@@ -57,6 +68,35 @@
         </div>
 
 
+        <?php
+            if(isset($_POST['send_message']))
+            {
+                header('Content-Type: text/html; charset=utf-8');
 
+                $email_odbiorcy = 'mail@paweluchanski.pl';
+                $header = 'Reply-To: <'.$_POST['email']."> \r\n";
+                $header .= "MIME-Version: 1.0 \r\n";
+                $header .= "Content-Type: text/html; charset=UTF-8";
+                $wiadomosc = "<p>Dostałes wiadomość od:</p>";
+                $wiadomosc .= "<p>Imie: ".$_POST['name']. "</p>";
+                $wiadomosc .= "<p>Email: ".$_POST['email']. "</p>";
+                $wiadomosc .= "<p>Wiadomość: ".$_POST['message']."</p>";
+                $message = "<!doctype html><html><head><meta charset='UTF-8'>".$wiadomosc."</head></html>";
+                $subject = 'Wiadomosc z formularza kontaktowego';
+                $subject ='=?utf-8?B?'.base64_encode($subject).'?=';
+
+                if(mail($email_odbiorcy, $subject, $message, $header))
+                {
+                    echo '<script> alert("Wiadomość została wysłana."); </script>';
+                }
+                else
+                {
+                    echo '<script> alert("Błąd wysyłania wiadomości."); </script>';
+                }
+            }
+            else
+            {
+            }
+        ?>
     </body>
 </html>
