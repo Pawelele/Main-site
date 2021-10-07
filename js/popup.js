@@ -1,6 +1,6 @@
 let icon = document.querySelector("#send_message");
 let popup = document.querySelector(".contact-popup");
-let exit = document.querySelector("#x");
+let exit = document.querySelector("#contact_x");
 
 let opened = false;
 

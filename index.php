@@ -48,7 +48,7 @@
         <div class="contact-popup">
             <div class="contact-up">
                 <span>Napisz do mnie</span>
-                <span id="x">X</span>
+                <span id="contact_x">X</span>
             </div>
             <form method="POST">
                 <input type="text" name="name" class="input" placeholder="Podaj swoje imię" required><br>
@@ -56,6 +56,25 @@
                 <textarea id="message" name="message" placeholder="Tutaj wpisz wiadomość" required></textarea><br>
                 <input type="submit" name="send_message" value="Wyślij" id="send_submit"><br>
             </form>
+        </div>
+
+        <div class="project3-popup">
+            <div class="project3_left">
+                <div class="project3_logo">
+                    <img src="/img/kursly_logo.png">
+                </div>
+                <p><span>Nazwa:</span> Kursly</p>
+                <p><span>Autor:</span> Paweł Uchański</p>
+                <p><span>Status:</span> W rozbudowie</p>
+                <p><span>Github:</span> <a href="#">LINK</a></p>
+            </div>
+            <div class="project3_right">
+                <div class="project3_txt">
+                    <h2>OPIS</h2>
+                    <p>Platforma umożliwiająca kupowanie kursów internetowych. Aplikacja powstała jako projekt na studiach. Podstawowa funkcjonalność obejmuje: logowanie, rejestrację, doładowanie wirtualnego portfela oraz kupowanie wybranych kursów.<br><br><br>Do stworzenia projektu zostały wykorzystane technologie: HTML, CSS, Bootstrap, JavaScript, PHP oraz Bazy Danych.<br><br><br> Przykładowe dane do logowania:<br> Login: test@test.pl<br> Hasło: Test_123</p>
+                </div>
+
+            </div>
         </div>
 
         <div class="menu">
@@ -74,8 +93,19 @@
 
         </div>
 
-
+        <!-- Message php script -->
         <?php
+            $status = $_GET['status'];
+
+            if($status == 'success')
+            {
+                echo '<script> alert("Wiadomość została wysłana."); </script>';
+            }
+            else if($status=='error')
+            {
+                echo '<script> alert("Błąd wysyłania wiadomości."); </script>';
+            }
+
             if(isset($_POST['send_message']))
             {
                 header('Content-Type: text/html; charset=utf-8');
@@ -94,11 +124,11 @@
 
                 if(mail($email_odbiorcy, $subject, $message, $header))
                 {
-                    echo '<script> alert("Wiadomość została wysłana."); </script>';
+                    header('Location: https://paweluchanski.pl/index.php?status=success');
                 }
                 else
                 {
-                    echo '<script> alert("Błąd wysyłania wiadomości."); </script>';
+                    header('Location: https://paweluchanski.pl/index.php?status=error');
                 }
             }
             else
