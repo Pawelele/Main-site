@@ -4,8 +4,10 @@ body
     margin: 0 auto;
     font-family: 'Inter', sans-serif;
 }
+/* to add when site will be finished */
 .language
 {
+    display: none;
     color: white;
     position: absolute;
     left:20px;
@@ -78,6 +80,7 @@ body
     margin-left: auto;
     margin-right: auto;
     background-color: #0f0f0f;
+    cursor: grab;
 }
 
 .button:hover
@@ -186,11 +189,12 @@ a:visited
 }
 /* popup end */
 
-/* project3_popup */
-.project3-popup
+/* project_popup */
+.project-popup
 {
+    display:none;
     position: absolute;
-    width: 850px;
+    width: 680px;
     height: 452px;
     border-radius: 10px;
     margin-left: auto;
@@ -207,46 +211,51 @@ a:visited
     backdrop-filter: blur(30px);
     -webkit-backdrop-filter: blur(30px);
     /* backdrop-filter: brightness(150%) saturate(150%) blur(1rem); */
-
 }
-.project3_left
+.project_left
 {
     display:inline block;
-    width: 350px;
+    width: 280px;
     height: 452px;
     border-radius: 10px 0px 0px 10px;
     z-index: 100;
     float: left;
     font-size: 18px;
 }
-.project3_right
+.project_right
 {
     display:inline block;
-    width: 500px;
+    width: 400px;
     height: 452px;
     border-radius: 0px 10px 10px 0px;
     z-index: 100;
     float: left;
 
 }
-.project3_left p
+.project_left p
 {
-    margin-left: 67px;
+    margin-left: 45px;
 }
-.project3_logo
+.project_logo
 {
     position: relative;
-    width: 216px;
-    height: 184px;
+    width: 195px;
+    height: 166px;
     background: #DDDDDD;
     border-radius: 10px;
     margin: 0 auto;
     margin-top: 45px;
     margin-bottom: 35px;
 }
-.project3_logo img
+.project_logo:hover
 {
-    width: 150px;
+    transform: scale(1.05);
+    transition: cubic-bezier(0.19, 1, 0.22, 1);
+    transition-duration: 20ms;
+}
+.project_logo img
+{
+    width: 130px;
     position: absolute;
     margin: auto;
     top: 0;
@@ -254,21 +263,69 @@ a:visited
     right: 0;
     bottom: 0;
 }
-.project3_txt
+.project_txt
 {
     margin: 0 auto;
-    width: 360px;
+    width: 300px;
     height: 450px;
-    font-size: 16px;
+    font-size: 15px;
 }
-.project3_txt h2
+.project_txt h2
 {
     text-align: center;
     margin-bottom: 30px;
-    margin-top: 35px;
+    margin-top: 10px;
+}
+.project_x
+{
+    z-index: 1000;
+    float: right;
+    margin-right: 10px;
+    margin-top: 10px;
+    cursor: grab;
 }
 /* project3_popup end */
-
+@media (max-width: 699px)
+{
+    .project-popup
+    {
+        margin-top: 200px;
+        width: 360px;
+        height: 800px;
+    }
+    .project_left
+    {
+        display:block;
+        width: 360px;
+        height: 380px;
+    }
+    .project_right
+    {
+        display:block;
+        width: 360px;
+        height: 420px;
+    }
+    .project_left p
+    {
+        text-align: center;
+        margin-left: 0px;
+    }
+    .project_logo
+    {
+        margin-top: 25px;
+        margin-bottom: 20px;
+    }
+    .project_txt
+    {
+        width: 300px;
+        height: 450px;
+    }
+    .project_txt h2
+    {
+        margin-bottom: 30px;
+        margin-top: 0px;
+    }
+}
 @media (max-width: 575px)
 {
     .button
