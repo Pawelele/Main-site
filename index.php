@@ -6,17 +6,17 @@
         <link rel="icon" href="img/icon.ico">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta name="author" content="Paweł Uchański">
-		<meta name="description" content="Front-End developer Paweł Uchański">
+		<meta name="description" content="Nazywam się Paweł Uchański. Jestem studentem Informatyki i Ekonometrii i tworzę projekty wykorzystując technologie webowe.">
 		<meta name="keywords" content="Paweł Uchański, Front-End, Paweł, Uchański, Programista, Programista Uchański, Programista Paweł Uchański, Pawel Uchanski">
-		<link rel="stylesheet" href="style.css" type="text/css">
+		<link rel="stylesheet" href="/css/style.css" type="text/css">
 
         <!-- Czcionka -->
 		<link rel="preconnect" href="https://fonts.gstatic.com">
 		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 		<!-- Czcionka end -->
         <!-- Particles -->
+        <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js" defer></script>
         <script src="js/particles.js" defer></script>
-        <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
         <!-- Particles end -->
         <script src="js/popup.js" defer></script>
         <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -61,7 +61,7 @@
                 <div class="project_left">
                     <a href="https://portfolio.paweluchanski.pl" target="_blank">
                         <div class="project_logo">
-                            <img src="/img/logo_portfolio.png">
+                            <img src="/img/logo_portfolio.png" alt="Porfolio Paweł Uchański">
                         </div>
                     </a>
                     <p><span>Nazwa:</span> Portfolio</p>
@@ -82,7 +82,7 @@
                 <div class="project_left">
                     <a href="https://urzad.paweluchanski.pl" target="_blank">
                         <div class="project_logo">
-                            <img src="/img/logo_urzad.png">
+                            <img src="/img/logo_urzad.png" alt="Projekt Urząd Miasta">
                         </div>
                     </a>
                     <p><span>Nazwa:</span> Urząd Miasta</p>
@@ -103,7 +103,7 @@
                 <div class="project_left">
                     <a href="https://kursly.paweluchanski.pl" target="_blank">
                         <div class="project_logo">
-                            <img src="/img/logo_kursly.png">
+                            <img src="/img/logo_kursly.png" alt="Projekt Kursly">
                         </div>
                     </a>
                     <p><span>Nazwa:</span> Kursly</p>
@@ -120,63 +120,62 @@
         </div>
         <!-- Project popup end -->
 
-        <div class="menu">
-            <a href="https://linkedin.com/in/pawel-uchanski" target="_blank"><img src="img/linkedin.png"></a>
-            <a href="https://github.com/Pawelele" target="_blank"><img src="img/github.png"></a>
-            <img src="img/email.png" id="send_message">
-        </div>
+        <nav class="menu">
+            <a href="https://linkedin.com/in/paweluchanski" target="_blank"><img src="img/linkedin.png" alt="LinkedIn Paweł Uchański"></a>
+            <a href="https://github.com/Pawelele" target="_blank"><img src="img/github.png" alt="GitHub Paweł Uchański"></a>
+            <img src="img/email.png" id="send_message" alt="Wyślij wiadomość">
+        </nav>
 
-        <div class="site">
-            <a href="/"><img class="logo" src="img/logo.png"></a>
-            <p class="title">Paweł Uchański</p>
+        <main class="site">
+            <a href="/"><img class="logo" src="img/logo.png" title="Paweł Uchański" alt="Paweł Uchański"></a>
+            <h1 class="title">Paweł Uchański</h1>
             <p class="subtitle">Projekty:</p>
             <div class="button" id="project1">Portfolio</div><br>
             <div class="button" id="project2">Urząd Miasta</div><br>
             <div class="button" id="project3">Kursly</div><br>
 
-        </div>
+            <!-- Message php script -->
+            <?php
+                        $status = $_GET['status'];
 
-        <!-- Message php script -->
-        <?php
-            $status = $_GET['status'];
+                        if($status == 'success')
+                        {
+                            echo '<script> alert("Wiadomość została wysłana."); </script>';
+                        }
+                        else if($status=='error')
+                        {
+                            echo '<script> alert("Błąd wysyłania wiadomości."); </script>';
+                        }
 
-            if($status == 'success')
-            {
-                echo '<script> alert("Wiadomość została wysłana."); </script>';
-            }
-            else if($status=='error')
-            {
-                echo '<script> alert("Błąd wysyłania wiadomości."); </script>';
-            }
+                        if(isset($_POST['send_message']))
+                        {
+                            header('Content-Type: text/html; charset=utf-8');
 
-            if(isset($_POST['send_message']))
-            {
-                header('Content-Type: text/html; charset=utf-8');
+                            $email_odbiorcy = 'mail@paweluchanski.pl';
+                            $header = 'Reply-To: <'.$_POST['email']."> \r\n";
+                            $header .= "MIME-Version: 1.0 \r\n";
+                            $header .= "Content-Type: text/html; charset=UTF-8";
+                            $wiadomosc = "<p>Dostałes wiadomość od:</p>";
+                            $wiadomosc .= "<p>Imie: ".$_POST['name']. "</p>";
+                            $wiadomosc .= "<p>Email: ".$_POST['email']. "</p>";
+                            $wiadomosc .= "<p>Wiadomość: ".$_POST['message']."</p>";
+                            $message = "<!doctype html><html><head><meta charset='UTF-8'>".$wiadomosc."</head></html>";
+                            $subject = 'Wiadomosc z formularza kontaktowego';
+                            $subject ='=?utf-8?B?'.base64_encode($subject).'?=';
 
-                $email_odbiorcy = 'mail@paweluchanski.pl';
-                $header = 'Reply-To: <'.$_POST['email']."> \r\n";
-                $header .= "MIME-Version: 1.0 \r\n";
-                $header .= "Content-Type: text/html; charset=UTF-8";
-                $wiadomosc = "<p>Dostałes wiadomość od:</p>";
-                $wiadomosc .= "<p>Imie: ".$_POST['name']. "</p>";
-                $wiadomosc .= "<p>Email: ".$_POST['email']. "</p>";
-                $wiadomosc .= "<p>Wiadomość: ".$_POST['message']."</p>";
-                $message = "<!doctype html><html><head><meta charset='UTF-8'>".$wiadomosc."</head></html>";
-                $subject = 'Wiadomosc z formularza kontaktowego';
-                $subject ='=?utf-8?B?'.base64_encode($subject).'?=';
-
-                if(mail($email_odbiorcy, $subject, $message, $header))
-                {
-                    header('Location: https://paweluchanski.pl/index.php?status=success');
-                }
-                else
-                {
-                    header('Location: https://paweluchanski.pl/index.php?status=error');
-                }
-            }
-            else
-            {
-            }
-        ?>
+                            if(mail($email_odbiorcy, $subject, $message, $header))
+                            {
+                                header('Location: https://paweluchanski.pl?status=success');
+                            }
+                            else
+                            {
+                                header('Location: https://paweluchanski.pl/index.php?status=error');
+                            }
+                        }
+                        else
+                        {
+                        }
+                        ?>
+        </main>
     </body>
 </html>
