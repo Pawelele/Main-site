@@ -8,7 +8,7 @@
 		<meta name="author" content="Paweł Uchański">
 		<meta name="description" content="Nazywam się Paweł Uchański. Jestem studentem Informatyki i Ekonometrii i tworzę projekty wykorzystując technologie webowe.">
 		<meta name="keywords" content="Paweł Uchański, Front-End, Paweł, Uchański, Programista, Programista Uchański, Programista Paweł Uchański, Pawel Uchanski">
-		<link rel="stylesheet" href="/css/style.css" type="text/css">
+		<link rel="stylesheet" href="./css/style.css" type="text/css">
 
         <!-- Czcionka -->
 		<link rel="preconnect" href="https://fonts.gstatic.com">
@@ -48,7 +48,7 @@
                 <span>Napisz do mnie</span>
                 <span id="contact_x">X</span>
             </div>
-            <form method="POST">
+            <form method="POST" action="./php/message.php">
                 <input type="text" name="name" class="input" placeholder="Podaj swoje imię" required><br>
                 <input type="text" name="email" class="input" placeholder="Podaj swój email" required><br>
                 <textarea id="message" name="message" placeholder="Tutaj wpisz wiadomość" required></textarea><br>
@@ -134,48 +134,19 @@
             <div class="button" id="project2">Urząd Miasta</div><br>
             <div class="button" id="project3">Kursly</div><br>
 
-            <!-- Message php script -->
+            <!-- Message php script status-->
             <?php
-                        $status = $_GET['status'];
+                $status = $_GET['status'];
 
-                        if($status == 'success')
-                        {
-                            echo '<script> alert("Wiadomość została wysłana."); </script>';
-                        }
-                        else if($status=='error')
-                        {
-                            echo '<script> alert("Błąd wysyłania wiadomości."); </script>';
-                        }
-
-                        if(isset($_POST['send_message']))
-                        {
-                            header('Content-Type: text/html; charset=utf-8');
-
-                            $email_odbiorcy = 'mail@paweluchanski.pl';
-                            $header = 'Reply-To: <'.$_POST['email']."> \r\n";
-                            $header .= "MIME-Version: 1.0 \r\n";
-                            $header .= "Content-Type: text/html; charset=UTF-8";
-                            $wiadomosc = "<p>Dostałes wiadomość od:</p>";
-                            $wiadomosc .= "<p>Imie: ".$_POST['name']. "</p>";
-                            $wiadomosc .= "<p>Email: ".$_POST['email']. "</p>";
-                            $wiadomosc .= "<p>Wiadomość: ".$_POST['message']."</p>";
-                            $message = "<!doctype html><html><head><meta charset='UTF-8'>".$wiadomosc."</head></html>";
-                            $subject = 'Wiadomosc z formularza kontaktowego';
-                            $subject ='=?utf-8?B?'.base64_encode($subject).'?=';
-
-                            if(mail($email_odbiorcy, $subject, $message, $header))
-                            {
-                                header('Location: https://paweluchanski.pl?status=success');
-                            }
-                            else
-                            {
-                                header('Location: https://paweluchanski.pl/index.php?status=error');
-                            }
-                        }
-                        else
-                        {
-                        }
-                        ?>
+                if($status == 'success')
+                {
+                    echo '<script> alert("Wiadomość została wysłana."); </script>';
+                }
+                else if($status=='error')
+                {
+                    echo '<script> alert("Błąd wysyłania wiadomości."); </script>';
+                }
+            ?>
         </main>
     </body>
 </html>

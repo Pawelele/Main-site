@@ -12,23 +12,28 @@ body
     position: absolute;
     left:20px;
     top: 8px;
-    a{
+    a
+    {
         text-decoration: underline;
     }
 }
 .menu
 {
     width: 40px;
-    position: absolute;
+    position: fixed;
+    margin-top: 30px;
     right: 30px;
-    a{
+    a
+    {
         display: block;
         margin-bottom: 30px;
     }
-    img{
+    img
+    {
         width: 30px;
         transition:cubic-bezier(1, 0, 0, 1);
         transition-duration: 200ms;
+        cursor: pointer;
     }
     img:hover
     {
@@ -37,8 +42,10 @@ body
 }
 .logo
 {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
     width: 80px;
-    display: block;
     margin-left: auto;
     margin-right: auto;
     margin-top: 30px;
@@ -100,7 +107,7 @@ a:visited
 
 #particles-js
 {
-    position:absolute;
+    position:fixed;
     z-index: -2;
     width: 100%;
     height: 95%;
@@ -121,7 +128,7 @@ a:visited
     width: 500px;
     height: 470px;
     background: #313131;
-    border: 1px solid #707070;
+    border: none;
     border-radius: 10px;
     opacity: 0.99;
     text-align: center;
@@ -177,6 +184,7 @@ a:visited
     color: black;
     transition:cubic-bezier(0.25, 0.46, 0.45, 0.94);
     transition-duration: 200ms;
+    cursor: pointer;
 }
 #send_submit:hover
 {
@@ -277,7 +285,13 @@ a:visited
     cursor: pointer;
 }
 /* project3_popup end */
-
+@media (max-width: 970px)
+{
+    .menu
+    {
+        position: absolute;
+    }
+}
 @media (max-width: 699px)
 {
     .project-popup
@@ -347,5 +361,14 @@ a:visited
     {
         min-width: 300px;
         max-width: 320px;
+    }
+}
+
+@keyframes projects_button {
+    from{
+
+    }
+    to{
+
     }
 }
