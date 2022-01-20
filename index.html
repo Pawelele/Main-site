@@ -134,5 +134,18 @@
                 <button class="button" id="project3">Kursly</button><br>
             </section>
         </main>
+
+        <script>
+            if(window.location.href.indexOf('success') >= 0)
+            {
+                alert("Wiadomość została wysłana");
+                window.location.href = 'https://www.paweluchanski.pl/';
+            }
+            else if(window.location.href.indexOf('error') >= 0)
+            {
+                alert("Błąd wysyłania wiadomości");
+                window.location.href = 'https://www.paweluchanski.pl/';
+            }
+        </script>
     </body>
 </html>
