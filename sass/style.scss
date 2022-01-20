@@ -4,25 +4,12 @@ body
     margin: 0 auto;
     font-family: 'Inter', sans-serif;
 }
-/* to add when site will be finished */
-.language
-{
-    display: none;
-    color: white;
-    position: absolute;
-    left:20px;
-    top: 8px;
-    a
-    {
-        text-decoration: underline;
-    }
-}
 .menu
 {
-    width: 40px;
     position: fixed;
-    margin-top: 30px;
     right: 30px;
+    width: 40px;
+    margin-top: 30px;
     a
     {
         display: block;
@@ -31,68 +18,144 @@ body
     img
     {
         width: 30px;
-        transition:cubic-bezier(1, 0, 0, 1);
-        transition-duration: 200ms;
+        transition: .3s;
         cursor: pointer;
     }
     img:hover
     {
-        transform: scale(1.07);
+        transform: scale(1.08);
     }
+}
+.site
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    overflow: hidden;
 }
 .logo
 {
-    position: relative;
-    left: 50%;
-    transform: translateX(-50%);
     width: 80px;
-    margin-left: auto;
-    margin-right: auto;
     margin-top: 30px;
 }
 .title
 {
-    margin-top: 100px;
+    margin-top: 140px;
     font-size: 90px;
     color: white;
     font-weight: 200;
     letter-spacing: 4.5px;
     text-align: center;
 }
-.subtitle
+
+.title-animation
 {
-    margin-top: -14px;
-    font-size: 35px;
-    color: white;
-    letter-spacing: 1.2px;
-    font-weight: 300;
-    text-align: center;
+    animation: moveUp 2s forwards;
 }
-.button
+
+@keyframes moveUp
 {
+    0%
+    {
+        margin-top: 140px;
+    }
+    30%
+    {
+        margin-top: 140px;
+    }
+    100%
+    {
+        margin-top: 40px;
+    }
+}
+
+.my-projects-btn
+{
+    width: 220px;
+    height: 60px;
+    background: none;
     border: 2px solid white;
-    min-width: 340px;
-    max-width: 380px;
-    height: 70px;
-    text-align: center;
+    border-radius: 11px;
     color: white;
-    font-size: 25px;
-    font-weight: 200;
-    line-height: 70px;
-    margin-bottom: 20px;
-    border-radius: 15px;
-    margin-left: auto;
-    margin-right: auto;
-    background-color: #0f0f0f;
+    padding: 10px 20px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-size: 16px;
+    transition: .2s;
     cursor: pointer;
-    transition: cubic-bezier(0.6, -0.28, 0.735, 0.045);
-    transition-duration: 100ms;
+
+    &:hover{
+        transform: scale(1.03);
+        background-color: rgb(224, 224, 224);
+        color: #171717;
+    }
 }
-.button:hover
+
+.projects
 {
-    transform: scale(1.01);
-    background-color: rgb(224, 224, 224);
-    color: #171717;
+    opacity: 0;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .subtitle {
+        margin-top: -1vh;
+        font-size: 35px;
+        color: white;
+        letter-spacing: 1.2px;
+        font-weight: 300;
+    }
+
+    .button
+    {
+        min-width: 340px;
+        max-width: 380px;
+        height: 70px;
+        text-align: center;
+        color: white;
+        font-size: 25px;
+        font-weight: 200;
+        margin-bottom: 15px;
+        border-radius: 15px;
+        margin-left: auto;
+        margin-right: auto;
+        border: 2px solid white;
+        background-color: #0f0f0f;
+        cursor: pointer;
+        transition: .3s;
+
+        &:hover
+        {
+            transform: scale(1.01);
+            background-color: rgb(224, 224, 224);
+            color: #171717;
+        }
+    }
+
+    &--active
+    {
+        display: flex;
+    }
+}
+
+.projects-animation
+{
+    animation: showLater 1.2s forwards;
+}
+
+@keyframes showLater
+{
+    from
+    {
+        opacity: 0;
+    }
+    to
+    {
+        opacity: 1;
+    }
 }
 a
 {
@@ -115,27 +178,24 @@ a:visited
 /* Contact Popup */
 .contact-popup
 {
+    display:none;
     position: absolute;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: auto;
-    margin-bottom: auto;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
     z-index: 99;
     width: 500px;
     height: 470px;
     background: #313131;
     border: none;
     border-radius: 10px;
-    opacity: 0.99;
+    opacity: .99;
     text-align: center;
-    display:none;
+    box-shadow: 0 0 10px rgb(34, 34, 34);
 }
 .contact-up
 {
+    position: relative;
     width: 500px;
     height: 40px;
     background: #525252;
@@ -148,8 +208,8 @@ a:visited
 }
 #contact_x
 {
-    float: right;
-    margin-right: 10px;
+    position: absolute;
+    right: 10px;
     cursor:pointer;
 }
 .input
@@ -200,14 +260,9 @@ a:visited
     width: 680px;
     height: 452px;
     border-radius: 10px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: auto;
-    margin-bottom: auto;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
     z-index: 99;
     color: white;
     background-color: rgba(49, 49, 49, 0.5);

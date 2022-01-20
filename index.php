@@ -10,25 +10,27 @@
 		<meta name="keywords" content="Paweł Uchański, Front-End, Paweł, Uchański, Programista, Programista Uchański, Programista Paweł Uchański, Pawel Uchanski">
 		<link rel="stylesheet" href="./css/style.css" type="text/css">
 
-        <!-- Czcionka -->
+        <!-- Font -->
 		<link rel="preconnect" href="https://fonts.gstatic.com">
 		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-		<!-- Czcionka end -->
+		<!-- Font end -->
         <!-- Particles -->
         <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js" defer></script>
         <script src="js/particles.js" defer></script>
         <!-- Particles end -->
-        <script src="js/popup.js" defer></script>
         <!-- Global site tag (gtag.js) - Google Analytics -->
         <script async src="https://www.googletagmanager.com/gtag/js?id=UA-209484079-1"></script>
         <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
 
-        gtag('config', 'UA-209484079-1');
-        </script>
+            gtag('config', 'UA-209484079-1');
+            </script>
         <!-- gtag end -->
+
+        <script src="js/popup.js" defer></script>
+        <script src="js/main.js" defer></script>
     </head>
     <body>
         <!-- particles.js container -->
@@ -36,21 +38,14 @@
         </div>
         <!-- end particles.js -->
 
-        <!-- pl/en -->
-        <div class="language">
-            <a href="/" title="Change language to Polish">PL</a>&nbsp
-            <a href="/en/" title="Change language to English">EN</a>
-        </div>
-        <!-- end pl/en -->
-
         <div class="contact-popup">
             <div class="contact-up">
                 <span>Napisz do mnie</span>
                 <span id="contact_x">X</span>
             </div>
             <form method="POST" action="./php/message.php">
-                <input type="text" name="name" class="input" placeholder="Podaj swoje imię" required><br>
-                <input type="text" name="email" class="input" placeholder="Podaj swój email" required><br>
+                <input type="text" name="name" class="input" placeholder="Podaj imię" required><br>
+                <input type="text" name="email" class="input" placeholder="Podaj email" required><br>
                 <textarea id="message" name="message" placeholder="Tutaj wpisz wiadomość" required></textarea><br>
                 <input type="submit" name="send_message" value="Wyślij" id="send_submit"><br>
             </form>
@@ -129,10 +124,16 @@
         <main class="site">
             <a href="/"><img class="logo" src="img/logo.png" title="Paweł Uchański" alt="Paweł Uchański"></a>
             <h1 class="title">Paweł Uchański</h1>
-            <p class="subtitle">Projekty:</p>
-            <div class="button" id="project1">Portfolio</div><br>
-            <div class="button" id="project2">Urząd Miasta</div><br>
-            <div class="button" id="project3">Kursly</div><br>
+
+            <button class="my-projects-btn">Sprawdź moje projekty</button>
+            <section class="projects">
+                <p class="subtitle">Projekty:</p>
+                <button class="button" id="project1">Portfolio</button><br>
+                <button class="button" id="project2">Urząd Miasta</button><br>
+                <button class="button" id="project3">Kursly</button><br>
+            </section>
+
+
 
             <!-- Message php script status-->
             <?php
