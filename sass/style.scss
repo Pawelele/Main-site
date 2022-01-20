@@ -1,3 +1,5 @@
+@import 'animations';
+
 body
 {
     background: #0f0f0f;
@@ -52,23 +54,7 @@ body
 
 .title-animation
 {
-    animation: moveUp 2s forwards;
-}
-
-@keyframes moveUp
-{
-    0%
-    {
-        margin-top: 140px;
-    }
-    30%
-    {
-        margin-top: 140px;
-    }
-    100%
-    {
-        margin-top: 40px;
-    }
+    animation: moveUpTitle 2s forwards;
 }
 
 .my-projects-btn
@@ -143,20 +129,9 @@ body
 
 .projects-animation
 {
-    animation: showLater 1.2s forwards;
+    animation: showProjectsLater 1.2s forwards;
 }
 
-@keyframes showLater
-{
-    from
-    {
-        opacity: 0;
-    }
-    to
-    {
-        opacity: 1;
-    }
-}
 a
 {
     text-decoration: none;
@@ -192,19 +167,25 @@ a:visited
     opacity: .99;
     text-align: center;
     box-shadow: 0 0 10px rgb(34, 34, 34);
-}
-.contact-up
-{
-    position: relative;
-    width: 500px;
-    height: 40px;
-    background: #525252;
-    color: white;
-    text-align: center;
-    font-size: 20px;
-    line-height: 40px;
-    border-radius: 10px 10px 0px 0px;
-    margin-bottom: 30px;
+
+    .contact-up
+    {
+        position: relative;
+        width: 500px;
+        height: 40px;
+        background: #525252;
+        color: white;
+        text-align: center;
+        font-size: 20px;
+        line-height: 40px;
+        border-radius: 10px 10px 0px 0px;
+        margin-bottom: 30px;
+    }
+
+    &--active
+    {
+        display: block;
+    }
 }
 #contact_x
 {
@@ -268,7 +249,11 @@ a:visited
     background-color: rgba(49, 49, 49, 0.5);
     backdrop-filter: blur(30px);
     -webkit-backdrop-filter: blur(30px);
-    /* backdrop-filter: brightness(150%) saturate(150%) blur(1rem); */
+
+    &--active
+    {
+        display: block;
+    }
 }
 .project_left
 {

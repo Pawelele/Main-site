@@ -1,0 +1,27 @@
+@keyframes moveUpTitle
+{
+    0%
+    {
+        margin-top: 140px;
+    }
+    30%
+    {
+        margin-top: 140px;
+    }
+    100%
+    {
+        margin-top: 40px;
+    }
+}
+
+@keyframes showProjectsLater
+{
+    from
+    {
+        opacity: 0;
+    }
+    to
+    {
+        opacity: 1;
+    }
+}

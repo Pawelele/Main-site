@@ -1,101 +1,64 @@
 // Contact popup
-let icon_contact = document.querySelector("#send_message");
-let popup_contact = document.querySelector(".contact-popup");
-let exit_contact = document.querySelector("#contact_x");
+const projectsButtons = document.querySelectorAll('.projects .button');
+const projectsPopups = document.querySelectorAll('.project-popup');
+const exitPopups = document.querySelectorAll('.project_x');
 
-let opened_contact = false;
+const contactPopupBtn = document.querySelector('.send_message');
+const contactPopup = document.querySelector('.contact-popup');
+const contactPopupExit = contactPopup.querySelector('#contact_x');
 
-icon_contact.addEventListener("click",function(){
-    if(opened_contact == false)
+const selectProjectPopup = (e) => {
+    if(e.target.matches('#project1'))
     {
-        popup_contact.style.display = "block";
-        opened_contact = true;
+        openProjectPopup('project1-popup');
     }
-    else
+    else if(e.target.matches('#project2'))
     {
-        popup_contact.style.display = "none";
-        opened_contact = false;
+        openProjectPopup('project2-popup');
     }
-});
-
-exit_contact.addEventListener("click", function(){
-    popup_contact.style.display = "none";
-    opened_contact = false;
-});
-
-
-//Project1 popup
-let button_project1 = document.querySelector("#project1");
-let popup_project1 = document.querySelector("#project1-popup");
-let exit_project1 = document.querySelector("#project1_x");
-
-let opened_project1 = false;
-
-button_project1.addEventListener("click",function(){
-    if(opened_project1 == false)
+    else if(e.target.matches('#project3'))
     {
-        popup_project1.style.display="block";
-        opened_project1 = true;
+        openProjectPopup('project3-popup');
     }
-    else
-    {
-        popup_project1.style.display="none";
-        opened_project1 = false;
-    }
-});
+}
 
-exit_project1.addEventListener("click", function(){
-    popup_project1.style.display = "none";
-    opened_project1 = false;
-});
+const openProjectPopup = (chosedPopup) => {
+    projectsPopups.forEach(el => {
+        if(el.classList.contains(chosedPopup))
+        {
+            el.classList.add('project-popup--active');
+        }
+        else
+        {
+            el.classList.remove('project-popup--active')
+        }
+    })
+}
 
-//Project2 popup
-let button_project2 = document.querySelector("#project2");
-let popup_project2 = document.querySelector("#project2-popup");
-let exit_project2 = document.querySelector("#project2_x");
+const exitPopup = (e) => {
+    const currentPopup = e.target.closest('.project-popup');
+    currentPopup.classList.remove('project-popup--active');
+}
 
-let opened_project2 = false;
+const openContactPopup = () => {
+    contactPopup.classList.toggle('contact-popup--active');
+    projectsPopups.forEach(el => el.classList.remove('project-popup--active'))
+}
 
-button_project2.addEventListener("click",function(){
-    if(opened_project2 == false)
-    {
-        popup_project2.style.display="block";
-        opened_project2 = true;
-    }
-    else
-    {
-        popup_project2.style.display="none";
-        opened_project2 = false;
-    }
-});
+const exitContactPopup = () => {
+    contactPopup.classList.remove('contact-popup--active');
+}
 
-exit_project2.addEventListener("click", function(){
-    popup_project2.style.display = "none";
-    opened_project2 = false;
-});
 
-// Project3 popup
-let button_project3 = document.querySelector("#project3");
-let popup_project3 = document.querySelector("#project3-popup");
-let exit_project3 = document.querySelector("#project3_x");
+// AddEventListeners
+projectsButtons.forEach(el => {
+    el.addEventListener('click', selectProjectPopup);
+})
 
-let opened_project3 = false;
+exitPopups.forEach(el => {
+    el.addEventListener('click', exitPopup);
+})
 
-button_project3.addEventListener("click",function(){
-    if(opened_project3 == false)
-    {
-        popup_project3.style.display="block";
-        opened_project3 = true;
-    }
-    else
-    {
-        popup_project3.style.display="none";
-        opened_project3 = false;
-    }
-});
-
-exit_project3.addEventListener("click", function(){
-    popup_project3.style.display = "none";
-    opened_project3 = false;
-});
+contactPopupBtn.addEventListener('click', openContactPopup);
+contactPopupExit.addEventListener('click', exitContactPopup);
 

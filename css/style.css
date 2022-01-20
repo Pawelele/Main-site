@@ -1,3 +1,45 @@
+@-webkit-keyframes moveUpTitle {
+  0% {
+    margin-top: 140px;
+  }
+  30% {
+    margin-top: 140px;
+  }
+  100% {
+    margin-top: 40px;
+  }
+}
+
+@keyframes moveUpTitle {
+  0% {
+    margin-top: 140px;
+  }
+  30% {
+    margin-top: 140px;
+  }
+  100% {
+    margin-top: 40px;
+  }
+}
+
+@-webkit-keyframes showProjectsLater {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes showProjectsLater {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 body {
   background: #0f0f0f;
   margin: 0 auto;
@@ -61,32 +103,8 @@ body {
 }
 
 .title-animation {
-  -webkit-animation: moveUp 2s forwards;
-          animation: moveUp 2s forwards;
-}
-
-@-webkit-keyframes moveUp {
-  0% {
-    margin-top: 140px;
-  }
-  30% {
-    margin-top: 140px;
-  }
-  100% {
-    margin-top: 40px;
-  }
-}
-
-@keyframes moveUp {
-  0% {
-    margin-top: 140px;
-  }
-  30% {
-    margin-top: 140px;
-  }
-  100% {
-    margin-top: 40px;
-  }
+  -webkit-animation: moveUpTitle 2s forwards;
+          animation: moveUpTitle 2s forwards;
 }
 
 .my-projects-btn {
@@ -168,26 +186,8 @@ body {
 }
 
 .projects-animation {
-  -webkit-animation: showLater 1.2s forwards;
-          animation: showLater 1.2s forwards;
-}
-
-@-webkit-keyframes showLater {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes showLater {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+  -webkit-animation: showProjectsLater 1.2s forwards;
+          animation: showProjectsLater 1.2s forwards;
 }
 
 a {
@@ -227,7 +227,7 @@ a:visited {
           box-shadow: 0 0 10px #222222;
 }
 
-.contact-up {
+.contact-popup .contact-up {
   position: relative;
   width: 500px;
   height: 40px;
@@ -238,6 +238,10 @@ a:visited {
   line-height: 40px;
   border-radius: 10px 10px 0px 0px;
   margin-bottom: 30px;
+}
+
+.contact-popup--active {
+  display: block;
 }
 
 #contact_x {
@@ -304,7 +308,10 @@ a:visited {
   background-color: rgba(49, 49, 49, 0.5);
   backdrop-filter: blur(30px);
   -webkit-backdrop-filter: blur(30px);
-  /* backdrop-filter: brightness(150%) saturate(150%) blur(1rem); */
+}
+
+.project-popup--active {
+  display: block;
 }
 
 .project_left {
