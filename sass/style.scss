@@ -6,6 +6,13 @@ body
     margin: 0 auto;
     font-family: 'Inter', sans-serif;
 }
+#particles-js
+{
+    position:fixed;
+    z-index: -2;
+    width: 100%;
+    height: 95%;
+}
 .menu
 {
     position: fixed;
@@ -50,11 +57,11 @@ body
     font-weight: 200;
     letter-spacing: 4.5px;
     text-align: center;
-}
 
-.title-animation
-{
-    animation: moveUpTitle 2s forwards;
+    &-animation
+    {
+        animation: moveUpTitle 2s forwards;
+    }
 }
 
 .my-projects-btn
@@ -87,7 +94,7 @@ body
     justify-content: center;
     align-items: center;
 
-    .subtitle {
+    &__subtitle {
         margin-top: -1vh;
         font-size: 35px;
         color: white;
@@ -95,7 +102,7 @@ body
         font-weight: 300;
     }
 
-    .button
+    &__button
     {
         min-width: 340px;
         max-width: 380px;
@@ -125,11 +132,11 @@ body
     {
         display: flex;
     }
-}
 
-.projects-animation
-{
-    animation: showProjectsLater 1.2s forwards;
+    &-animation
+    {
+        animation: showProjectsLater 1.2s forwards;
+    }
 }
 
 a
@@ -143,13 +150,6 @@ a:visited
     color: white;
 }
 
-#particles-js
-{
-    position:fixed;
-    z-index: -2;
-    width: 100%;
-    height: 95%;
-}
 /* Contact Popup */
 .contact-popup
 {
@@ -168,7 +168,7 @@ a:visited
     text-align: center;
     box-shadow: 0 0 10px rgb(34, 34, 34);
 
-    .contact-up
+    &__up
     {
         position: relative;
         width: 500px;
@@ -180,6 +180,55 @@ a:visited
         line-height: 40px;
         border-radius: 10px 10px 0px 0px;
         margin-bottom: 30px;
+        &-exit
+        {
+            position: absolute;
+            right: 10px;
+            cursor:pointer;
+        }
+    }
+
+
+    &__input
+    {
+        width: 300px;
+        height: 30px;
+        border: none;
+        border-radius: 10px;
+        margin-bottom: 10px;
+        text-align: center;
+    }
+    &__message
+    {
+        margin-top: 20px;
+        height: 200px;
+        width: 290px;
+        border: none;
+        border-radius: 10px;
+        text-align: center;
+        padding: 10px;
+        max-width: 90%;
+        max-height: 210px;
+    }
+    &__send
+    {
+        height: 40px;
+        width: 140px;
+        margin-top: 15px;
+        border-radius: 5px;
+        border: none;
+        font-size: 16px;
+        font-weight: 500;
+        background-color: white;
+        color: black;
+        transition:cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        transition-duration: 200ms;
+        cursor: pointer;
+
+        &:hover
+        {
+            transform: scale(1.04);
+        }
     }
 
     &--active
@@ -187,51 +236,6 @@ a:visited
         display: block;
     }
 }
-#contact_x
-{
-    position: absolute;
-    right: 10px;
-    cursor:pointer;
-}
-.input
-{
-    width: 300px;
-    height: 30px;
-    border: none;
-    border-radius: 10px;
-    margin-bottom: 10px;
-    text-align: center;
-}
-#message
-{
-    margin-top: 20px;
-    height: 200px;
-    width: 290px;
-    border: none;
-    border-radius: 10px;
-    text-align: center;
-    padding: 10px;
-}
-#send_submit
-{
-    height: 40px;
-    width: 140px;
-    margin-top: 15px;
-    border-radius: 5px;
-    border: none;
-    font-size: 16px;
-    font-weight: 500;
-    background-color: white;
-    color: black;
-    transition:cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    transition-duration: 200ms;
-    cursor: pointer;
-}
-#send_submit:hover
-{
-    transform: scale(1.04);
-}
-/* popup end */
 
 /* project_popup */
 .project-popup
@@ -248,83 +252,102 @@ a:visited
     color: white;
     background-color: rgba(49, 49, 49, 0.5);
     backdrop-filter: blur(30px);
-    -webkit-backdrop-filter: blur(30px);
+    // -webkit-backdrop-filter: blur(30px);
+
+    &__left
+    {
+        display:inline block;
+        width: 280px;
+        height: 452px;
+        border-radius: 10px 0px 0px 10px;
+        z-index: 100;
+        float: left;
+        font-size: 18px;
+        p{
+            margin-left: 45px;
+        }
+
+        &-logo
+        {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            width: 195px;
+            height: 166px;
+            background: #DDDDDD;
+            border-radius: 10px;
+            margin: 0 auto;
+            margin-top: 45px;
+            margin-bottom: 35px;
+            transition: cubic-bezier(0.19, 1, 0.22, 1);
+            transition-duration: 20ms;
+            img{
+                width: 130px;
+                transition: 1s;
+            }
+            i{
+                position: absolute;
+                color: black;
+                font-size: 25px;
+                right: 10px;
+                bottom: 10px;
+            }
+            .pointerAnimate
+            {
+                animation: projectsPointer 5s forwards;
+            }
+            &:hover
+            {
+                transform: scale(1.05);
+                img{
+                    transform: scale(1.05);
+                }
+            }
+        }
+    }
+
+    &__right
+    {
+        display:inline block;
+        width: 400px;
+        height: 452px;
+        border-radius: 0px 10px 10px 0px;
+        z-index: 100;
+        float: left;
+
+        &-text
+        {
+            margin: 0 auto;
+            width: 300px;
+            height: 450px;
+            font-size: 15px;
+            h2{
+                text-align: center;
+                margin-bottom: 30px;
+                margin-top: 14px;
+            }
+        }
+    }
+
+    &__exit
+    {
+        z-index: 1000;
+        float: right;
+        margin-right: 10px;
+        margin-top: 10px;
+        cursor: pointer;
+    }
 
     &--active
     {
         display: block;
     }
 }
-.project_left
-{
-    display:inline block;
-    width: 280px;
-    height: 452px;
-    border-radius: 10px 0px 0px 10px;
-    z-index: 100;
-    float: left;
-    font-size: 18px;
-    p{
-        margin-left: 45px;
-    }
-}
-.project_right
-{
-    display:inline block;
-    width: 400px;
-    height: 452px;
-    border-radius: 0px 10px 10px 0px;
-    z-index: 100;
-    float: left;
+/* project_popup end */
 
-}
-.project_logo
-{
-    position: relative;
-    width: 195px;
-    height: 166px;
-    background: #DDDDDD;
-    border-radius: 10px;
-    margin: 0 auto;
-    margin-top: 45px;
-    margin-bottom: 35px;
-    transition: cubic-bezier(0.19, 1, 0.22, 1);
-    transition-duration: 20ms;
-    img{
-        width: 130px;
-        position: absolute;
-        margin: auto;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-    }
-}
-.project_logo:hover
-{
-    transform: scale(1.05);
-}
-.project_txt
-{
-    margin: 0 auto;
-    width: 300px;
-    height: 450px;
-    font-size: 15px;
-    h2{
-        text-align: center;
-        margin-bottom: 30px;
-        margin-top: 14px;
-    }
-}
-.project_x
-{
-    z-index: 1000;
-    float: right;
-    margin-right: 10px;
-    margin-top: 10px;
-    cursor: pointer;
-}
-/* project3_popup end */
+
+
 @media (max-width: 970px)
 {
     .menu
@@ -340,34 +363,34 @@ a:visited
         width: 360px;
         height: 800px;
     }
-    .project_left
+    .project-popup__left
     {
         display:block;
         width: 360px;
         height: 380px;
     }
-    .project_right
+    .project-popup__right
     {
         display:block;
         width: 360px;
         height: 420px;
     }
-    .project_left p
+    .project-popup__left p
     {
         text-align: center;
         margin-left: 0px;
     }
-    .project_logo
+    .project-popup__left-logo
     {
         margin-top: 25px;
         margin-bottom: 20px;
     }
-    .project_txt
+    .project-popup__right-text
     {
         width: 300px;
         height: 450px;
     }
-    .project_txt h2
+    .project-popup__right-text h2
     {
         margin-bottom: 30px;
         margin-top: 0px;
@@ -375,7 +398,7 @@ a:visited
 }
 @media (max-width: 575px)
 {
-    .button
+    .projects__button
     {
         min-width: 340px;
         max-width: 400px;
@@ -384,7 +407,7 @@ a:visited
     {
         width: 350px;
     }
-    .contact-up
+    .contact-popup__up
     {
         width: 350px;
     }
@@ -397,18 +420,9 @@ a:visited
         margin-top: 13vh;
         font-size: 70px;
     }
-    .button
+    .projects__button
     {
         min-width: 300px;
         max-width: 320px;
-    }
-}
-
-@keyframes projects_button {
-    from{
-
-    }
-    to{
-
     }
 }

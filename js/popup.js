@@ -1,11 +1,14 @@
 // Contact popup
-const projectsButtons = document.querySelectorAll('.projects .button');
+const projectsButtons = document.querySelectorAll('.projects__button');
 const projectsPopups = document.querySelectorAll('.project-popup');
-const exitPopups = document.querySelectorAll('.project_x');
+const exitPopups = document.querySelectorAll('.project-popup__exit');
 
 const contactPopupBtn = document.querySelector('.send_message');
 const contactPopup = document.querySelector('.contact-popup');
-const contactPopupExit = contactPopup.querySelector('#contact_x');
+const contactPopupExit = contactPopup.querySelector('.contact-popup__up-exit');
+
+// pointer in corner of project logo for animation
+const projectsPointer = document.querySelectorAll('.project-popup__left-logo i');
 
 const selectProjectPopup = (e) => {
     if(e.target.matches('#project1'))
@@ -27,10 +30,14 @@ const openProjectPopup = (chosedPopup) => {
         if(el.classList.contains(chosedPopup))
         {
             el.classList.add('project-popup--active');
+            // projectsPointer.classList.add('pointerAnimate');
+            projectsPointer.forEach(el => {
+                el.classList.add('pointerAnimate');
+            })
         }
         else
         {
-            el.classList.remove('project-popup--active')
+            el.classList.remove('project-popup--active');
         }
     })
 }

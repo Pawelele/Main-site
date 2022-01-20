@@ -25,3 +25,30 @@
         opacity: 1;
     }
 }
+
+@keyframes projectsPointer
+{
+
+    0%{
+        transform: scale(1);
+    }
+    15%{
+        transform: scale(1.15);
+    }
+    30%{
+        transform: scale(1);
+    }
+    50%{
+        transform: scale(1);
+
+    }
+    65%{
+        transform: scale(1.15);
+    }
+    75%{
+        transform: scale(1);
+    }
+    100%{
+        transform: translate(-15px, -15px);
+    }
+}
